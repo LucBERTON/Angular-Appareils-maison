@@ -1,0 +1,25 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-collapse">
+      <ul class="nav navbar-nav">
+        <!--routerLink comme href mais pour une route. routerLinkActive pour indiquer une classe pour le parent d'un lien cliqué-->
+        <li routerLinkActive="active"><a routerLink="auth">Authentification</a></li>
+        <li routerLinkActive="active"><a routerLink="appareils">Appareils</a></li>
+        <li routerLinkActive="active"><a routerLink="ajout">Nouvel Appareil</a></li>
+        <li routerLinkActive="active"><a routerLink="users">Utilisateurs</a></li>
+      </ul>
+      <div>
+        <p class="navbar-right"> Vous êtes sur cette application depuis {{secondes}} secondes</p>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <!--balise qui indique où seront affichés les components après routing-->
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

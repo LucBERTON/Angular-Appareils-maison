@@ -1,0 +1,24 @@
+<!--Ce Component sert d'illustration pour gérer un formulaire utilisateur via la méthode Template-->
+
+<div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+      <form (ngSubmit)="onSubmit(form)" #form="ngForm">
+        <div class="form-group">
+          <label for="name">
+            Nom de l'appareil
+          </label>
+          <input type="text" id="name" class="form-control" name="name" ngModel required >
+        </div>
+        <div class="form-group">
+          <label for="status">
+            État de l'appareil
+          </label>
+          <select id="status" class="form-control" name="status" [ngModel]="defaultStatus">
+            <option value="true">Allumé</option>
+            <option value="false">Éteint</option>
+          </select>
+        </div>
+        <button class="btn btn-primary" type="submit" [disabled]="form.invalid">Enregistrer</button>
+      </form>
+    </div>
+  </div>

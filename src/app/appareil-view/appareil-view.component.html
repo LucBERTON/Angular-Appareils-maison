@@ -1,0 +1,26 @@
+<h2>Mes appareils</h2>
+<p>Dernière mise à jour : {{ lastUpdate |async |date: "y MMMM EEEE d" |uppercase }}</p>
+<ul class="list-group">
+  <!--ngFor pour itérer, let i = index pour récupérer l'index de chaque itération
+  [] les crochets pour passer des valeurs aux éléments enfants via @Input() -->
+  <app-appareil *ngFor="let appareil of appareils; let i = index"
+                [appareilName]="appareil.name"
+                [appareilStatus]="appareil.status"
+                [indexOfAppareil] = "i"
+                [id]="appareil.id"></app-appareil>
+</ul>
+<!--Bouton pour allumer tous les appareils-->
+<button class="btn btn-success" 
+  (click)="onAllumer()">Tout allumer</button>
+
+<!--Bouton pour éteindre tous les appareils-->
+<button class="btn btn-danger" 
+  (click)="onEteindre()">Tout éteindre</button>
+
+<!--Bouton pour enregistrer les appareils sur le serveur-->
+<button class="btn btn-primary" 
+(click)="onSave()">Enregistrer sur Serveur</button>
+
+<!--Bouton pour récupérer les appareils sur le serveur-->
+<button class="btn btn-primary" 
+(click)="onFetch()">Récupérer les appareils du Serveur</button>

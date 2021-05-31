@@ -1,0 +1,19 @@
+<!--ngClass pour attribuer une classe à un élément en fonction d'une condition-->
+<li [ngClass]="{'list-group-item': true,
+                'list-group-item-success': appareilStatus === true,
+                'list-group-item-danger': appareilStatus === false }">
+
+                <!--ngStyle pour attribuer un style à un élément. getColor() renvoie une couleur-->
+    <h4 [ngStyle]="{color: getColor()}">Appareil : {{ appareilName }} -- Statut : 
+      <!--ngIf pour afficher un élément de manière conditionnelle-->
+      <span *ngIf="!appareilStatus"> Eteint </span> <span *ngIf="appareilStatus"> Allumé </span></h4>
+      <a [routerLink]="[id]">Détail de l'appareil</a>
+    <br>
+
+    <button class="btn btn-success" 
+            *ngIf="!appareilStatus"
+            (click)="onSwitch()"> Allumer </button>
+    <button class="btn btn-danger" 
+            *ngIf="appareilStatus"
+            (click)="onSwitch()"> Eteindre </button>
+  </li>
